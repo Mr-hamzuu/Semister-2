@@ -1,0 +1,1 @@
+<b>This repository contains my second semester C++ practice work. <b> <br>Through these exercises and mini-projects, I’ve gained hands-on experience with Object-Oriented Programming (OOP), dynamic memory management, pointer operations, and class design in C++. It reflects my progress and learning during the semester.
