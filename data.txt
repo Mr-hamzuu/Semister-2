@@ -1,0 +1,4 @@
+2	umer	2333
+23	hamza	33000
+23	umer	45545
+56	dainyal	23333
