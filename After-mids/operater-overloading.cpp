@@ -154,6 +154,19 @@ class op{
         c.marks=marks*b.marks;
         return c;
     }
+    op operator /(op b){
+        op c;
+        c.marks=marks/b.marks;
+        return c;
+    }
+    void operator>=(op b){
+        if (marks>=b.marks)
+        {
+            cout<<"true";
+        }
+        cout<<"false";
+        
+    }
 };
 int main()
 {
@@ -174,8 +187,14 @@ int main()
     op n(200),o;
     o=m+n;
     o.display();
-    
+
     o=m*n;
     o.display();
+
+    o=m/n;
+    o.display();
+
+    m>=n;
+
     return 0;
 }
