@@ -71,49 +71,93 @@
 //     return 0;
 // }
 
-#include <iostream>
+// #include <iostream>
+// using namespace std;
+
+// class complex
+// {
+//     int x, y;
+
+// public:
+//     void setdata()
+//     {
+//         cout << "Enter real number : ";
+//         cin >> x;
+//         cout << "Enter imaginary number : ";
+//         cin >> y;
+//     }
+//     void getdata()
+//     {
+//         cout << "The values are " << x << "+" << y << "i" << endl;
+//     }
+
+//     complex operator+(complex b)
+//     {
+//         complex c;
+//         c.x = x + b.x;
+//         c.y = y + b.y;
+//         return c;
+//     }
+// };
+
+// int main()
+// {
+//     complex a, b, c;
+//     a.setdata();
+//     a.getdata();
+
+//     cout << endl;
+
+//     b.setdata();
+//     b.getdata();
+
+//     cout << endl;
+//     c = a + b;
+
+//     c.getdata();
+//     return 0;
+// }
+
+
+#include<iostream>
 using namespace std;
 
-class complex
-{
-    int x, y;
-
-public:
-    void setdata()
-    {
-        cout << "Enter real number : ";
-        cin >> x;
-        cout << "Enter imaginary number : ";
-        cin >> y;
+class op{
+    int marks;
+    public:
+    op(int n){
+        marks=n;
     }
-    void getdata()
-    {
-        cout << "The values are " << x << "+" << y << "i" << endl;
+    void display(){
+        cout<<"The marks are "<<marks<<endl;
     }
-
-    complex operator+(complex b)
-    {
-        complex c;
-        c.x = x + b.x;
-        c.y = y + b.y;
-        return c;
+    void operator ++(){
+        ++marks;
+    }
+    void operator ++(int){
+        marks++;
+    }
+    void operator --(){
+        --marks;
+    }
+    void operator --(int){
+        marks--;
     }
 };
-
 int main()
 {
-    complex a, b, c;
-    a.setdata();
-    a.getdata();
+    op m(100);
+    m.display();
+    m++;
+    
+    m.display();
 
-    cout << endl;
+    ++m;
+    m.display();
 
-    b.setdata();
-    b.getdata();
-
-    cout << endl;
-    c = a + b;
-
-    c.getdata();
+    --m;
+    m.display();
+    m--;
+    m.display();
     return 0;
 }
