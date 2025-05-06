@@ -125,6 +125,7 @@ using namespace std;
 class op{
     int marks;
     public:
+    op(){}
     op(int n){
         marks=n;
     }
@@ -143,13 +144,23 @@ class op{
     void operator --(int){
         marks--;
     }
+    op operator +(op b){
+        op c;
+        c.marks=marks+b.marks;
+        return c;
+    }
+    op operator *(op b){
+        op c;
+        c.marks=marks*b.marks;
+        return c;
+    }
 };
 int main()
 {
     op m(100);
     m.display();
     m++;
-    
+
     m.display();
 
     ++m;
@@ -159,5 +170,12 @@ int main()
     m.display();
     m--;
     m.display();
+
+    op n(200),o;
+    o=m+n;
+    o.display();
+    
+    o=m*n;
+    o.display();
     return 0;
 }
