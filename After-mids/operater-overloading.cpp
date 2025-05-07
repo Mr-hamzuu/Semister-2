@@ -118,55 +118,71 @@
 //     return 0;
 // }
 
-
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class op{
+class op
+{
     int marks;
-    public:
-    op(){}
-    op(int n){
-        marks=n;
+    int arr[4];
+
+public:
+    op() {}
+    op(int n)
+    {
+        marks = n;
     }
-    void display(){
-        cout<<"The marks are "<<marks<<endl;
+    void display()
+    {
+        cout << "The marks are " << marks << endl;
     }
-    void operator ++(){
+    void operator++()
+    {
         ++marks;
     }
-    void operator ++(int){
+    void operator++(int)
+    {
         marks++;
     }
-    void operator --(){
+    void operator--()
+    {
         --marks;
     }
-    void operator --(int){
+    void operator--(int)
+    {
         marks--;
     }
-    op operator +(op b){
+    op operator+(op b)
+    {
         op c;
-        c.marks=marks+b.marks;
+        c.marks = marks + b.marks;
         return c;
     }
-    op operator *(op b){
+    op operator*(op b)
+    {
         op c;
-        c.marks=marks*b.marks;
+        c.marks = marks * b.marks;
         return c;
     }
-    op operator /(op b){
+    op operator/(op b)
+    {
         op c;
-        c.marks=marks/b.marks;
+        c.marks = marks / b.marks;
         return c;
     }
-    void operator>=(op b){
-        if (marks>=b.marks)
+    void operator>=(op b)
+    {
+        if (marks >= b.marks)
         {
-            cout<<"true";
+            cout << "true";
         }
-        cout<<"false";
-        
+        cout << "false";
     }
+    int &operator[](int index)
+    {
+        return arr[index];
+    }
+    
 };
 int main()
 {
@@ -184,17 +200,28 @@ int main()
     m--;
     m.display();
 
-    op n(200),o;
-    o=m+n;
+    op n(200), o;
+    o = m + n;
     o.display();
 
-    o=m*n;
+    o = m * n;
     o.display();
 
-    o=m/n;
+    o = m / n;
     o.display();
+    m >= n;
 
-    m>=n;
+    cout << endl;
+    op arr;
+    for (int i = 0; i < 4; i++)
+    {
+        arr[i] = i + 1;
+    }
+
+    for (int i = 0; i < 4; i++)
+    {
+        cout << arr[i] << " ";
+    }
 
     return 0;
 }
