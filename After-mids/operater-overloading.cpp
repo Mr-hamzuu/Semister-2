@@ -125,6 +125,8 @@ class op
 {
     int marks;
     int arr[4];
+    int real;
+    int imagnary;
 
 public:
     op() {}
@@ -174,15 +176,32 @@ public:
     {
         if (marks >= b.marks)
         {
-            cout << "true";
+            cout << "true" << endl;
         }
-        cout << "false";
+        cout << "false" << endl;
     }
-    int &operator[](int index)
+    void operator==(op b)
+    {
+        if (marks == b.marks)
+        {
+            cout << "true" << endl;
+        }
+        cout << "false" << endl;
+    }
+    // int &operator[](int b)
+    // {
+    //     if (b == 0)
+    //     {
+    //         return real;
+    //     }
+
+    //     return imagnary;
+    // }
+
+    int& operator[](int index)
     {
         return arr[index];
     }
-    
 };
 int main()
 {
@@ -210,6 +229,7 @@ int main()
     o = m / n;
     o.display();
     m >= n;
+    m == n;
 
     cout << endl;
     op arr;
@@ -223,5 +243,10 @@ int main()
         cout << arr[i] << " ";
     }
 
+    // op complex;
+    // complex[0] = 5;
+    // complex[1] = 7;
+    // cout << complex[0] << endl;
+    // cout << complex[1] << endl;
     return 0;
 }
