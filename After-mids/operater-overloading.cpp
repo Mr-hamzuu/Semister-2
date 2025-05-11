@@ -127,12 +127,16 @@ class op
     int arr[4];
     int real;
     int imagnary;
+    int matrix[4][4];
 
 public:
     op() {}
     op(int n)
     {
         marks = n;
+    }
+    int getdata(){
+        return marks;
     }
     void display()
     {
@@ -154,12 +158,12 @@ public:
     {
         marks--;
     }
-    op operator+(op b)
-    {
-        op c;
-        c.marks = marks + b.marks;
-        return c;
-    }
+    // op operator+(op b)
+    // {
+    //     op c;
+    //     c.marks = marks + b.marks;
+    //     return c;
+    // }
     op operator*(op b)
     {
         op c;
@@ -192,17 +196,32 @@ public:
     // {
     //     if (b == 0)
     //     {
-    //         return real;
-    //     }
+        //         return real;
+        //     }
+        
+        //     return imagnary;
+        // }
+        
+        int& operator[](int index)
+        {
+            return arr[index];
+        }
 
-    //     return imagnary;
-    // }
+        // Parenthesis operator  we can use paranthesis operator for one and 2d array both, we can pass 1 or many values in it.
+        int& operator()(int i,int j){
+            return matrix[i][j];
+        }
 
-    int& operator[](int index)
-    {
-        return arr[index];
-    }
+        friend op operator+(op ,op);
 };
+
+// using friend function
+op operator+(op p,op c){
+    op d;
+    d.marks=p.marks+c.marks;
+    return d;
+    
+}
 int main()
 {
     op m(100);
@@ -220,6 +239,7 @@ int main()
     m.display();
 
     op n(200), o;
+    cout<<"Marks :"<<endl;
     o = m + n;
     o.display();
 
@@ -248,5 +268,27 @@ int main()
     // complex[1] = 7;
     // cout << complex[0] << endl;
     // cout << complex[1] << endl;
+
+    cout<<endl;
+    op matrix;
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            matrix(i,j)=i+9;
+        }
+    }
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            cout<<matrix(i,j)<<" ";
+        }
+        cout<<endl;
+        
+    }
+    
+    
+
     return 0;
 }
