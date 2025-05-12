@@ -118,177 +118,215 @@
 //     return 0;
 // }
 
-#include <iostream>
+// #include <iostream>
+// using namespace std;
+
+// class op
+// {
+//     int marks;
+//     int arr[4];
+//     int real;
+//     int imagnary;
+//     int matrix[4][4];
+
+// public:
+//     op() {}
+//     op(int n)
+//     {
+//         marks = n;
+//     }
+//     int getdata(){
+//         return marks;
+//     }
+//     void display()
+//     {
+//         cout << "The marks are " << marks << endl;
+//     }
+//     void operator++()
+//     {
+//         ++marks;
+//     }
+//     void operator++(int)
+//     {
+//         marks++;
+//     }
+//     void operator--()
+//     {
+//         --marks;
+//     }
+//     void operator--(int)
+//     {
+//         marks--;
+//     }
+//     // op operator+(op b)
+//     // {
+//     //     op c;
+//     //     c.marks = marks + b.marks;
+//     //     return c;
+//     // }
+//     op operator*(op b)
+//     {
+//         op c;
+//         c.marks = marks * b.marks;
+//         return c;
+//     }
+//     op operator/(op b)
+//     {
+//         op c;
+//         c.marks = marks / b.marks;
+//         return c;
+//     }
+//     void operator>=(op b)
+//     {
+//         if (marks >= b.marks)
+//         {
+//             cout << "true" << endl;
+//         }
+//         cout << "false" << endl;
+//     }
+//     void operator==(op b)
+//     {
+//         if (marks == b.marks)
+//         {
+//             cout << "true" << endl;
+//         }
+//         cout << "false" << endl;
+//     }
+//     // int &operator[](int b)
+//     // {
+//     //     if (b == 0)
+//     //     {
+//         //         return real;
+//         //     }
+        
+//         //     return imagnary;
+//         // }
+        
+//         int& operator[](int index)
+//         {
+//             return arr[index];
+//         }
+
+//         // Parenthesis operator  we can use paranthesis operator for one and 2d array both, we can pass 1 or many values in it.
+//         int& operator()(int i,int j){
+//             return matrix[i][j];
+//         }
+
+//         friend op operator+(op ,op);
+
+// };
+
+// // using friend function
+// op operator+(op p,op c){
+//     op d;
+//     d.marks=p.marks+c.marks;
+//     return d;
+    
+// }
+// int main()
+// {
+//     op m(100);
+//     m.display();
+//     m++;
+
+//     m.display();
+
+//     ++m;
+//     m.display();
+
+//     --m;
+//     m.display();
+//     m--;
+//     m.display();
+
+//     op n(200), o;
+//     cout<<"Marks :"<<endl;
+//     o = m + n;
+//     o.display();
+
+//     o = m * n;
+//     o.display();
+
+//     o = m / n;
+//     o.display();
+//     m >= n;
+//     m == n;
+
+//     cout << endl;
+//     op arr;
+//     for (int i = 0; i < 4; i++)
+//     {
+//         arr[i] = i + 1;
+//     }
+
+//     for (int i = 0; i < 4; i++)
+//     {
+//         cout << arr[i] << " ";
+//     }
+
+//     // op complex;
+//     // complex[0] = 5;
+//     // complex[1] = 7;
+//     // cout << complex[0] << endl;
+//     // cout << complex[1] << endl;
+
+//     cout<<endl;
+//     op matrix;
+//     for (int i = 0; i < 4; i++)
+//     {
+//         for (int j = 0; j < 4; j++)
+//         {
+//             matrix(i,j)=i+9;
+//         }
+//     }
+//     for (int i = 0; i < 4; i++)
+//     {
+//         for (int j = 0; j < 4; j++)
+//         {
+//             cout<<matrix(i,j)<<" ";
+//         }
+//         cout<<endl;
+        
+//     }
+//     cin>>m;
+//     cout<<m;
+
+//     return 0;
+// }
+
+
+// Insertion and Extraction operator overloading
+#include<iostream>
 using namespace std;
 
-class op
-{
-    int marks;
-    int arr[4];
-    int real;
-    int imagnary;
-    int matrix[4][4];
+class obj{
+    int n;
+    public:
+    obj(){}
+    void display(){
+        cout<<n;
+    }
 
-public:
-    op() {}
-    op(int n)
-    {
-        marks = n;
-    }
-    int getdata(){
-        return marks;
-    }
-    void display()
-    {
-        cout << "The marks are " << marks << endl;
-    }
-    void operator++()
-    {
-        ++marks;
-    }
-    void operator++(int)
-    {
-        marks++;
-    }
-    void operator--()
-    {
-        --marks;
-    }
-    void operator--(int)
-    {
-        marks--;
-    }
-    // op operator+(op b)
-    // {
-    //     op c;
-    //     c.marks = marks + b.marks;
-    //     return c;
-    // }
-    op operator*(op b)
-    {
-        op c;
-        c.marks = marks * b.marks;
-        return c;
-    }
-    op operator/(op b)
-    {
-        op c;
-        c.marks = marks / b.marks;
-        return c;
-    }
-    void operator>=(op b)
-    {
-        if (marks >= b.marks)
-        {
-            cout << "true" << endl;
-        }
-        cout << "false" << endl;
-    }
-    void operator==(op b)
-    {
-        if (marks == b.marks)
-        {
-            cout << "true" << endl;
-        }
-        cout << "false" << endl;
-    }
-    // int &operator[](int b)
-    // {
-    //     if (b == 0)
-    //     {
-        //         return real;
-        //     }
-        
-        //     return imagnary;
-        // }
-        
-        int& operator[](int index)
-        {
-            return arr[index];
-        }
-
-        // Parenthesis operator  we can use paranthesis operator for one and 2d array both, we can pass 1 or many values in it.
-        int& operator()(int i,int j){
-            return matrix[i][j];
-        }
-
-        friend op operator+(op ,op);
+        friend istream& operator>>(istream& in,obj& obj);
+        friend ostream& operator<<(ostream& out,const obj& obj);
 };
 
-// using friend function
-op operator+(op p,op c){
-    op d;
-    d.marks=p.marks+c.marks;
-    return d;
-    
+
+istream& operator >>(istream &in,obj &object){
+    cout<<"Enter value : ";
+    in>>object.n;
+  return in;
 }
+ostream& operator <<(ostream &out,const obj &object){
+   
+    out<<"The values is "<<object.n<<endl;
+return out;
+}
+
 int main()
 {
-    op m(100);
-    m.display();
-    m++;
-
-    m.display();
-
-    ++m;
-    m.display();
-
-    --m;
-    m.display();
-    m--;
-    m.display();
-
-    op n(200), o;
-    cout<<"Marks :"<<endl;
-    o = m + n;
-    o.display();
-
-    o = m * n;
-    o.display();
-
-    o = m / n;
-    o.display();
-    m >= n;
-    m == n;
-
-    cout << endl;
-    op arr;
-    for (int i = 0; i < 4; i++)
-    {
-        arr[i] = i + 1;
-    }
-
-    for (int i = 0; i < 4; i++)
-    {
-        cout << arr[i] << " ";
-    }
-
-    // op complex;
-    // complex[0] = 5;
-    // complex[1] = 7;
-    // cout << complex[0] << endl;
-    // cout << complex[1] << endl;
-
-    cout<<endl;
-    op matrix;
-    for (int i = 0; i < 4; i++)
-    {
-        for (int j = 0; j < 4; j++)
-        {
-            matrix(i,j)=i+9;
-        }
-    }
-    for (int i = 0; i < 4; i++)
-    {
-        for (int j = 0; j < 4; j++)
-        {
-            cout<<matrix(i,j)<<" ";
-        }
-        cout<<endl;
-        
-    }
-    
-    
-
+    obj c,y;
+    cin>>c>>y;
+    cout<<c<<y;
     return 0;
 }

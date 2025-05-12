@@ -4,7 +4,8 @@
         "*.tcc": "cpp",
         "ostream": "cpp",
         "random": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "iosfwd": "cpp"
     },
     "sqltools.connections": [
         {
