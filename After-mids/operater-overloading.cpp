@@ -301,6 +301,7 @@ using namespace std;
 
 class obj{
     int n;
+    char c[20];
     public:
     obj(){}
     void display(){
@@ -309,17 +310,24 @@ class obj{
 
         friend istream& operator>>(istream& in,obj& obj);
         friend ostream& operator<<(ostream& out,const obj& obj);
+
+        char& operator[](char &n){
+            return n;
+        }
 };
 
 
 istream& operator >>(istream &in,obj &object){
     cout<<"Enter value : ";
     in>>object.n;
+    cout<<"Enter char : ";
+    in>>object.c;
   return in;
 }
 ostream& operator <<(ostream &out,const obj &object){
    
     out<<"The values is "<<object.n<<endl;
+    out<<"The char is "<<object.c<<endl;
 return out;
 }
 
