@@ -5,7 +5,8 @@
         "ostream": "cpp",
         "random": "cpp",
         "typeinfo": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "iomanip": "cpp"
     },
     "sqltools.connections": [
         {
