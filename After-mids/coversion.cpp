@@ -313,110 +313,161 @@
 //     return 0;
 // }
 
+// #include <iostream>
+// #include <iomanip>
+// using namespace std;
+
+// class time24;
+// class time12
+// {
+//     int h, m;
+//     bool pm;
+
+// public:
+//     time12() : h(0), m(0), pm(true) {}
+//     time12(int n, int c, bool p)
+//     {
+//         h = n;
+//         m = c;
+//         pm = p;
+//     }
+//     void display() const
+//     {
+//         cout << setw(2) << setfill('0') << h << " : " << setw(2) << setfill('0') << m;
+//         if (pm)
+//         {
+//             cout << " PM" << endl;
+//         }
+//         else
+//         {
+//             cout << " AM" << endl;
+//         }
+//     }
+
+//     operator time24();
+// };
+// class time24
+// {
+//     int hrs, min, sec;
+
+// public:
+//     time24() : hrs(0), min(0), sec(0) {}
+//     time24(int n, int c, int p)
+//     {
+//         hrs = n;
+//         min = c;
+//         sec = p;
+//     }
+//     void display() const
+//     {
+//         cout << setw(2) << setfill('0') << hrs << " : " << setw(2) << setfill('0') << min << " : " << setw(2) << setfill('0') << sec << endl;
+//     }
+//     operator time12()
+//     {
+//         int h;
+//         bool b = false;
+//         if (sec > 30)
+//         {
+//             min++;
+//         }
+//         if (hrs > 12)
+//         {
+//             h = hrs - 12;
+//             b = true;
+//         }
+//         if (min > 59)
+//         {
+//             h++;
+//         }
+//         if (hrs == 24)
+//     {
+//         hrs = 0;
+//     }
+//         return time12(h, min, b);
+//     }
+// };
+
+// time12::operator time24()
+// {
+//     int hrs = 0, sec = 0;
+//     if (pm)
+//     {
+//         hrs = h + 12;
+//     }
+//     else
+//     {
+//         hrs = h;
+//     }
+//     if (m >= 60)
+//     {
+//         hrs++;
+//     }
+
+//     return time24(hrs, m, sec);
+// }
+
+// int main()
+// {
+//     time12 s(6, 23, 1);
+//     time24 c = s;
+//     s.display();
+//     c.display();
+
+//     time24 v(23, 34, 56);
+//     time12 d = v;
+//     v.display();
+//     d.display();
+//     return 0;
+// }
+
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
-class time24;
-class time12
+class box
 {
-    int h, m;
-    bool pm;
+    int n;
 
 public:
-    time12() : h(0), m(0), pm(true) {}
-    time12(int n, int c, bool p)
+box(){}
+    box(int b)
     {
-        h = n;
-        m = c;
-        pm = p;
+        n = b;
     }
-    void display() const
+    box( float &b)
     {
-        cout << setw(2) << setfill('0') << h << " : " << setw(2) << setfill('0') << m;
-        if (pm)
-        {
-            cout << " PM" << endl;
-        }
-        else
-        {
-            cout << " AM" << endl;
-        }
+        n = static_cast<int>(b);
+    }
+    void display()
+    {
+        cout << n << endl;
+    }
+    box operator=(const box &b)
+    {
+        n = b.n + 3;
+        return box(n);
+    }
+    operator int(){
+        return n;
     }
 
-    operator time24();
 };
-class time24
-{
-    int hrs, min, sec;
-
-public:
-    time24() : hrs(0), min(0), sec(0) {}
-    time24(int n, int c, int p)
-    {
-        hrs = n;
-        min = c;
-        sec = p;
-    }
-    void display() const
-    {
-        cout << setw(2) << setfill('0') << hrs << " : " << setw(2) << setfill('0') << min << " : " << setw(2) << setfill('0') << sec << endl;
-    }
-    operator time12()
-    {
-        int h;
-        bool b = false;
-        if (sec > 30)
-        {
-            min++;
-        }
-        if (hrs > 12)
-        {
-            h = hrs - 12;
-            b = true;
-        }
-        if (min > 59)
-        {
-            h++;
-        }
-        if (hrs == 24)
-    {
-        hrs = 0;
-    }
-        return time12(h, min, b);
-    }
-};
-
-time12::operator time24()
-{
-    int hrs = 0, sec = 0;
-    if (pm)
-    {
-        hrs = h + 12;
-    }
-    else
-    {
-        hrs = h;
-    }
-    if (m >= 60)
-    {
-        hrs++;
-    }
-    
-
-    return time24(hrs, m, sec);
-}
-
 int main()
 {
-    time12 s(6, 23, 1);
-    time24 c = s;
-    s.display();
+    int n=45;
+    float f;
+    f=n;
+    cout<<"the value is "<<n<<endl;
+    box b(6);
+    box c(b);
     c.display();
-
-    time24 v(23, 34, 56);
-    time12 d = v;
-    v.display();
+    box d;
+    d = c;
     d.display();
+    box v;
+    v=f;
+    n=d;
+    v.display();
+    cout<<"the value is "<<n<<endl;
+
     return 0;
 }
