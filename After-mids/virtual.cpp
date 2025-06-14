@@ -115,53 +115,78 @@
 //     return 0;
 // }
 
-#include <iostream>
+// #include <iostream>
+// using namespace std;
+
+// class myclass
+// {
+// public:
+//     int n;
+//     // static int count ;
+//     myclass() { n = 5; }
+//     int getdata()
+//     {
+//         return n;
+//     }
+//     void display() {
+
+//         cout << "myclass " << n << endl;
+//     }
+// };
+// class parent1 :virtual public myclass
+// {
+// public:
+//     void display() 
+//     {
+//         cout << "parent 1" << n << endl;
+//     }
+// };
+// class parent2 :virtual public myclass
+// {
+// public:
+//     void display() 
+//     {
+//         cout << "parent 1 " << n << endl;
+//     }
+// };
+// class child : public parent1, public parent2
+// {
+// public:
+//     // void display()
+//     // {
+//     //     cout << "Child  " <<myclass::getdata()<<  endl;
+//     // }
+// };
+// // int myclass::count=0;
+// int main()
+// {
+//     child n;
+//     n.parent2::display();
+
+//     return 0;
+// }
+
+
+
+#include<iostream>
 using namespace std;
 
-class myclass
-{
-public:
+class parent{
+    public:
+    virtual void display()=0;
+};
+class child:public parent{
     int n;
-    // static int count ;
-    myclass() { n = 5; }
-    int getdata()
-    {
-        return n;
+    public:
+    void display(){
+        n=5;
+        cout<<"n = "<<n<<endl;
     }
-    void display() {
+};
 
-        cout << "myclass " << n << endl;
-    }
-};
-class parent1 :virtual public myclass
-{
-public:
-    void display() 
-    {
-        cout << "parent 1" << n << endl;
-    }
-};
-class parent2 :virtual public myclass
-{
-public:
-    void display() 
-    {
-        cout << "parent 1 " << n << endl;
-    }
-};
-class child : public parent1, public parent2
-{
-public:
-    // void display()
-    // {
-    //     cout << "Child  " <<myclass::getdata()<<  endl;
-    // }
-};
-// int myclass::count=0;
 int main()
 {
     child n;
-    n.parent2::display();
-
+    n.display();
     return 0;
 }
